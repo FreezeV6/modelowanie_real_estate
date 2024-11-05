@@ -1,41 +1,25 @@
+from source.database.db_init import db
+from source.models.Property import Property
+from source.models.Inquiry import Inquiry
+from source.add_data.add_properties import add_properties
+from source.utils.consts import TEMPLATE_DIR, STATIC_DIR, DB_PATH, KEY
 from flask import Flask, render_template, request, redirect, url_for, flash
-from database.db_init import db
-from models.Property import Property
-from models.Inquiry import Inquiry
 import os
 
-app = Flask(__name__)
-app.secret_key = 'supersecretkey'
+app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
+app.secret_key = KEY
 
 # Ensure the database folder exists
-db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'database', 'real_estate.db')
-os.makedirs(os.path.dirname(db_path), exist_ok=True)
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_PATH}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Initialize the database with the Flask app
 db.init_app(app)
 
-# Create tables and add sample data when the app starts
 with app.app_context():
     db.create_all()
-    if not Property.query.first():
-        initial_properties = [
-            Property(title='Modern Family Home', location='New York', price='$500,000',
-                     description='A spacious family home in the heart of New York.'),
-            Property(title='Luxury Condo', location='San Francisco', price='$850,000',
-                     description='A beautiful condo with stunning views of the city.'),
-            Property(title='Cozy Cottage', location='Austin', price='$300,000',
-                     description='A charming cottage with modern amenities.'),
-            Property(title='Beachfront Villa', location='Miami', price='$1,200,000',
-                     description='A luxurious villa with a private beach in Miami.'),
-            Property(title='Mountain Retreat', location='Denver', price='$750,000',
-                     description='A cozy retreat with beautiful mountain views in Denver.')
-        ]
-        db.session.bulk_save_objects(initial_properties)
-        db.session.commit()
-
+    add_properties()
 
 # Home route: Shows all listings
 @app.route('/')
@@ -79,7 +63,3 @@ def signup():
         return redirect(url_for('home'))
 
     return render_template('signup.html')
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
