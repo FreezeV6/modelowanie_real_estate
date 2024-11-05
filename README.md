@@ -12,5 +12,5 @@
 
 ### Branche należy odbijać od main'a w sposób:  `{nazwa warstwy}/update-{czego dotyczy branch}` np.: 
 
-### `backend/update-fix-cleanup-modularization`, gdzie skłaniałbym się do krótszych nazw.
+### `backend/update-fix-cleanup-modularization`, gdzie skłaniałbym się do krótszych nazw :)
 
