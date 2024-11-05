@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ property.title }}</h2>
+    <p><strong>Location:</strong> {{ property.location }}</p>
+    <p><strong>Price:</strong> {{ property.price }}</p>
+    <a href="{{ url_for('signup') }}">Contact an Agent</a>
+{% endblock %}

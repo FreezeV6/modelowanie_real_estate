@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Available Properties</h2>
+    <div class="property-list">
+        {% for property in properties %}
+            <div class="property-item">
+                <h3>{{ property.title }}</h3>
+                <p>Location: {{ property.location }}</p>
+                <p>Price: {{ property.price }}</p>
+                <a href="{{ url_for('property_detail', property_id=property.id) }}">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
