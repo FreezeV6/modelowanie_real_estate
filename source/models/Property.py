@@ -1,4 +1,4 @@
-from database.db_init import db
+from source.database.db_init import db
 
 
 class Property(db.Model):
