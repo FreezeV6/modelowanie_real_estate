@@ -20,9 +20,30 @@ nav a {
 .property-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
-    padding: 1em;
+    gap: 16px;
 }
+
+.property-card {
+    position: relative;
+    width: 300px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hit-counter {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #ff6347;  /* Choose a color that stands out */
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
 
 .property-item {
     border: 1px solid #ddd;
