@@ -6,7 +6,6 @@ from source.models.Inquiry import Inquiry
 from source.add_data.add_properties import add_properties
 from source.utils.consts import TEMPLATE_DIR, STATIC_DIR, DB_PATH, KEY
 
-
 app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
 app.secret_key = KEY
 
@@ -33,17 +32,20 @@ def home():
 @app.route('/property/<int:property_id>')
 def property_detail(property_id):
     property = Property.query.get_or_404(property_id)
+
+    property.hit_counter += 1
+    db.session.commit()
+
     return render_template('property.html', property=property)
 
 
-# Route to book the property
-@app.route('/book/<int:property_id>')
-def book_property(property_id):
+# Route to increment the view count (hit counter) for the property
+@app.route('/property/<int:property_id>/increment', methods=['POST', 'GET'])
+def increment_hit_counter(property_id):
     property = Property.query.get_or_404(property_id)
-    property.booked = True
+    property.hit_counter += 1
     db.session.commit()
-    flash('The property has been booked. Please fill out the form to confirm your booking.', 'success')
-    return redirect(url_for('signup'))
+    return redirect(url_for('property_detail', property_id=property_id))
 
 
 # Signup form route
