@@ -8,6 +8,8 @@
 
 ### Dodawanie danych: [ADD_DATA](source/add_data/ADD_DATA.md)
 
+### Repo: [MieszkaMy](https://github.com/FreezeV6/MieszkaMy/)
+
 ## CI/CD:
 
 ### Commity nazwane odpowiednio do wprowadzonych zmian :) (mniej chaosu)
