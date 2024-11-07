@@ -1,48 +1,158 @@
+@import url('/static/colors.css');
+@import url('/static/fonts.css');
+
 body {
-    font-family: Arial, sans-serif;
+    background-color: var(--base100);
     margin: 0;
-    padding: 0;
+    overflow: overlay;
+    margin-bottom: 64px;
 }
 
 header {
-    background-color: #333;
-    color: white;
-    padding: 1em;
-    text-align: center;
+    height: 80px;
+    background-color: var(--primary-color);
+    color: var(--base100);
+    padding-left: 147px;
+    padding-right: 147px;
+    margin: 0;
+    text-align: left;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+}
+main {
+    padding-left: 64px;
+    padding-right: 64px;
+    margin: 0; 
+}
+.company-name {
+    font-family: 'Merriweather', serif;
+    font-weight: 100;
+    font-size: 32px;
+    color: var(--base100);
+    margin: 0;
 }
 
 nav a {
-    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--base100);
     margin: 0 1em;
     text-decoration: none;
 }
 
 .property-list {
+    margin-top: 48px;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 64px;
+}
+h1 {
+    /* font-family: 'Varela' ,sans-serif; */
+    font-family: 'Merriweather', serif;
+    font-weight:200;
+    font-size: 40px;
+    margin-top: 72px;
+    margin-left: 83px;
+}
+h2{
+    font-family: 'Inter' ,sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    /* color: var(--secondary-color); */
+    color: var(--primary-color);
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+p {
+    margin: 0;
 }
 
 .property-card {
     position: relative;
-    width: 300px;
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    width: 350px;
+    height: 452px;
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid #ddd; */
+    border-radius: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.property-image {
+    background-color: antiquewhite;
+    height: 250px;  /* Jeśli chcesz określoną wysokość */
+    margin: 0;
+    padding: 0;  /* Zerowanie paddingu */
+    display: flex;
+    align-items: flex-start;  /* Wyrównanie elementów do góry */
+}
+
+.property-details {
+    padding: 0 24px;
+    margin: 0;  
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+.location {
+    font-family: 'Inter' ,sans-serif;
+    font-weight:400;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--base800);
+    margin: 0;  
+    padding: 0;  
+}
+.area {
+    font-family: 'Inter' ,sans-serif;
+    font-weight:400;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--base600);
+    margin-top: 4px;
+    padding: 0;  
+}
+
+.price-text {
+    font-family: 'Inter' ,sans-serif;
+    font-weight:600;
+    font-size: 26px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--base800);
+    margin-top: 12px;
+    margin-bottom: 16px;
+    margin-right: 24px;
+    padding: 0;  
+    text-align: right;
 }
 
 .hit-counter {
     position: absolute;
     top: 8px;
     right: 8px;
-    background-color: #ff6347;  /* Choose a color that stands out */
-    color: white;
-    padding: 4px 8px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: bold;
-}
+    background-color: var(--base100);  /* Choose a color that stands out */
+    color: var(--primary-color);
+    padding: 8px 12px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+} 
+
+
 
 
 .property-item {
@@ -65,8 +175,8 @@ label, input, textarea, button {
 
 button {
     padding: 0.5em;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--base100);
     border: none;
     cursor: pointer;
 }
@@ -76,17 +186,21 @@ button:hover {
 }
 
 .button {
-    display: inline-block;
-    padding: 0.5em 1em;
-    margin: 0.5em;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+    font-family: "Inter";
+    font-size: 12px;
+    width: 80%;
+    display: block;
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: var(--base100);
+    border-radius: 24px;
     text-align: center;
+    text-decoration: none;
+    margin: 0 auto; 
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #DC3217;
 }
+
 
